@@ -1,7 +1,9 @@
-package com.example.loic.comics_app_android;
+package com.example.loic.comics_app_android.presentation.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import com.example.loic.comics_app_android.R;
 
 public class ComicsListActivity extends AppCompatActivity {
 
