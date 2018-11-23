@@ -1,0 +1,8 @@
+package com.example.loic.comics_app_android.presentation.ui.view;
+
+/**
+ * Created by Loic- on 23/11/2018.
+ */
+
+public interface ComicDetailView {
+}
