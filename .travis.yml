@@ -12,15 +12,3 @@ before_script:
   - chmod +x build-apk.sh
 script:
   - ./build-apk.sh
-deploy:
-   provider: releases
-   overwrite: true
-   api_key:
-     secure: B+vrSbTqGFHw06jAAef05PdyH/g6hwzNhaGcHCijHge2Ve9LfLu9NpnhOkpL77loBmd3aj6RorqM18rdpwj46PNuDOpliuUSIO/yoczQMwwsGQgJvO1GQ2Q+KpzxjP0n1awVHWdg13FHY6rhNnNDemmcNe6nYGrTqaciu972cFegKna7+Yi/WQOLVYnAO1LactEc9+gkHN66PGpgUKtYMS4xlZbZGjGJECtVId7nBMU7Ditu4pzGFfQMIQOnvfJ/kPPE719CGBDCDtyP2Ob6lBxn3aRW20ev2eTstvM2STr4BoYTspB8efOqwo9w4jA+OMpMLFtSHE5k7OMz1rlBjVp/3xJhFWjrz188UW+alTzno03BFUIdLAbdJh18pL4/g8opqP6emPxEFfq7uBmOsxLiHlOH12xonxtUt6arrOEsxbmG4pILxe58/UAN6fALPvTVazybu5kXdHznHZFJOR0BtiNqLR7yGqWKzfGmlxHgjDKYs9we0LdWxQ3b+EkcK5Ee6euWp0TqfKEHT3PEXKBUCy4qVS9Ih3/+3BoO194QLtAUVkDDtPWaE52BW1N4ZdL/lUcmgedBk56kBnP/djiiOFr0icwZmd70ql1jmGJbPgzoeLbiPgWLQfV/O0IVG79DqEq269qmvmhqI9bgX6zBnB4sGRToR7I7dfjNxyw=
-   file_glob: true
-   file: build/apk/*
-   skip_cleanup: true
-   on:
-    repo: RBTWCoderProprement/coder-proprement-project
-     tags: false
-     all_branches: true
