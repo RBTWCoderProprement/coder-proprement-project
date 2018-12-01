@@ -1,0 +1,29 @@
+fastlane_version "2.63.0"
+
+default_platform :android
+
+platform :android do
+  ENV["FASTLANE_HIDE_CHANGELOG"] = "true"  
+  ENV["FASTLANE_SKIP_UPDATE_CHECK"] = "true"    
+
+  PROJECT_NAME = "comics-app-android"   
+
+  # public lanes
+  desc "build"
+  lane :build_debug do |options|
+    gradle(
+      task: "clean",
+    )
+    gradle(
+      task: "assembleDebug",
+    )
+
+    OUTPUT_DIRECTORY_DEFAULT = "..\\build\\apk\\"
+    initial_apk_path = File.absolute_path(Dir.glob("../**/*.apk").last)
+    date_time = Time.now.strftime("%Y%m%d%H%M")
+    apk_filename = PROJECT_NAME+"-"+date_time+ ".apk"
+    final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
+    sh("mkdir",OUTPUT_DIRECTORY_DEFAULT)
+    sh 'mv '+initial_apk_path+' '+final_apk_path    
+  end
+end
