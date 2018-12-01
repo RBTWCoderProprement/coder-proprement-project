@@ -23,7 +23,7 @@ platform :android do
     date_time = Time.now.strftime("%Y%m%d%H%M")
     apk_filename = PROJECT_NAME+"-"+date_time+ ".apk"
     final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
-    sh 'mkdir '+OUTPUT_DIRECTORY_DEFAULT
+    sh("mkdir",OUTPUT_DIRECTORY_DEFAULT)
     sh 'mv '+initial_apk_path+' '+final_apk_path    
   end
 end
