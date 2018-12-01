@@ -6,7 +6,7 @@ platform :android do
   ENV["FASTLANE_HIDE_CHANGELOG"] = "true"  
   ENV["FASTLANE_SKIP_UPDATE_CHECK"] = "true"    
 
-  PROJECT_NAME = "sample-ci"   
+  PROJECT_NAME = "comics-app-android"   
 
   # public lanes
   desc "build"
