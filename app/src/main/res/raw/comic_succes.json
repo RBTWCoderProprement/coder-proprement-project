@@ -1,0 +1,122 @@
+{
+  "code": 500,
+  "results": [
+    {
+      "id": 64966,
+      "title": "Despicable Deadpool (2017) #288",
+      "issueNumber": 288,
+      "description": "DEADPOOL KILLS CABLE Parts 1 and 2. Deadpool’s going back to his vile beginnings as a mercenary and wanted killer. No more being a hero. No more X-Men. No more Avengers. And if he wants to break bad again, what’s more despicable than killing your best friend? Cable better get ready because his old friend Wade has him in the crosshairs. PLUS: Includes 3 bonus MARVEL PRIMER PAGES! Story by Robbie Thompson and a TBA artist!",
+      "diamondCode": "AUG170836",
+      "date": "2017-10-25T00:00:00-0400",
+      "price": 3.99,
+      "pageCount": 32,
+      "image": "http://i.annihil.us/u/prod/marvel/i/mg/f/03/59e7b08528560.jpg",
+      "creators": [
+        {
+          "name": "Gerry Duggan",
+          "role": "writer"
+        },
+        {
+          "name": "Nicholas Filardi",
+          "role": "colorist"
+        },
+        {
+          "name": "Scott Koblish",
+          "role": "inker"
+        }]
+
+        },
+        {
+          "id": 60516,
+          "digitalId": 0,
+          "title": "All-New Wolverine (2015) #26",
+          "issueNumber": 26,
+          "description": "The mysterious and deadly ORPHANS OF X continue to unfold their terrible plan for LAURA and those close to her…but how are they connected to WOLVERINE? And what do they know about LAURA and her past? Guest starring the Wolverine everyone loves to hate--DAKEN!",
+          "diamondCode": "AUG170915",
+          "date": "2017-10-25T00:00:00-0400",
+          "price": 3.99,
+          "pageCount": 32,
+          "image": "http://i.annihil.us/u/prod/marvel/i/mg/9/70/59e7b28f0ab61.jpg",
+          "creators": [
+            {
+              "name": "Juan N. Cabal",
+              "role": "inker"
+            },
+            {
+              "name": "Tom Taylor",
+              "role": "writer"
+            },
+            {
+              "name": "Nolan Woodard",
+              "role": "colorist"
+            }
+          ]
+        },
+        {
+          "id": 64964,
+          "title": "Jean Grey (2017) #8",
+          "issueNumber": 8,
+          "description": "PSYCH WAR Part 1. The Phoenix is coming and in its wake – death and destruction! Destined to become the Earth’s host for the fiery entity, Jean is still not prepared for its arrival and the ensuing battle to come. Her only hope, a former host who can prepare and train her telepathic powers, but what cost is Jean willing to pay when Emma Frost, The White Queen, becomes her only salvation and the last line of defense from the world burning? PLUS: Includes 3 bonus MARVEL PRIMER PAGES! Story by Robbie Thompson and art by Mark Bagley!",
+          "diamondCode": "AUG170919",
+          "pageCount": 32,
+          "date": "2017-10-25T00:00:00-0400",
+          "price": 3.99,
+          "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/50/59e7b025d65b0.jpg",
+          "creators": [
+            {
+              "name": "Dennis Hopeless",
+              "role": "writer"
+            },
+            {
+              "name": "Victor Ibanez",
+              "role": "inker"
+            }
+          ]
+        },
+        {
+          "id": 64968,
+          "title": "Black Panther (2016) #166",
+          "issueNumber": 166,
+          "description": "KLAW STANDS SUPREME Part 1 Black Panther’s greatest foe has returned – Ulysses Klaw is back and ready for war! Can T’Challa defeat the man who killed his father all while his country struggles to its feet? And as war looms, Wakanda’s gods have disappeared. Enter the Originators! The former gods are back — but what are their intentions for a land that has forgotten them? PLUS: Includes 3 bonus MARVEL PRIMER PAGES! Story by Robbie Thompson and a TBA artist!",
+          "diamondCode": "AUG170808",
+          "pageCount": 32,
+          "date": "2017-10-25T00:00:00-0400",
+          "price": 3.99,
+          "image": "http://i.annihil.us/u/prod/marvel/i/mg/7/20/59e7af8d60851.jpg",
+          "creators": [
+            {
+              "name": "Ta-Nehisi Coates",
+              "role": "writer"
+            },
+            {
+              "name": "Marc Deering",
+              "role": "inker"
+            }
+          ]
+        },
+        {
+          "id": 64967,
+          "digitalId": 0,
+          "title": "Daredevil (2015) #28",
+          "issueNumber": 28,
+          "variantDescription": "",
+          "description": "THE EPIC CONCLUSION TO “LAND OF THE BLIND!” It’s devil vs. devil, as DAREDEVIL battles THE BEAST, demonic source of power for the Hand clan – winner takes soul! Also: The next phase of DAREDEVIL’s story begins here, with the payoff to over two years of storytelling. The last page will rock the Marvel Universe!",
+          "diamondCode": "AUG170961",
+          "pageCount": 32,
+          "date": "2017-10-25T00:00:00-0400",
+          "price": 3.99,
+          "image": "http://i.annihil.us/u/prod/marvel/i/mg/6/d0/59e7b078f063b.jpg",
+          "creators": [
+            {
+              "name": "Ron Garney",
+              "role": "inker"
+            },
+            {
+              "name": "Charles Soule",
+              "role": "writer"
+            }
+          ]
+        }
+      ]
+    }
+
