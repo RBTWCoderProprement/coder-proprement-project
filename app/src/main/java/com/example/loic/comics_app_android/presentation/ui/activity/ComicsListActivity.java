@@ -9,6 +9,8 @@ import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.manager.ComicsManagerImpl;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
 
+import java.util.List;
+
 import io.reactivex.Scheduler;
 import io.reactivex.observers.DisposableSingleObserver;
 import io.reactivex.schedulers.Schedulers;
@@ -32,6 +34,20 @@ public class ComicsListActivity extends AppCompatActivity {
             @Override
             public void onError(Throwable e) {
                 Log.d("mlk", e.getMessage());
+                e.printStackTrace();
+            }
+        }).isDisposed();
+
+        manage.getAllComics().subscribeOn(Schedulers.io()).subscribeWith(new DisposableSingleObserver<List<ResultsItem>>() {
+            @Override
+            public void onSuccess(List<ResultsItem> listResultsItem) {
+                for(ResultsItem result : listResultsItem)
+                    Log.d("ListComics",String.valueOf(result.getId()));
+            }
+
+            @Override
+            public void onError(Throwable e) {
+                Log.d("ListComics", e.getMessage());
                 e.printStackTrace();
             }
         }).isDisposed();
