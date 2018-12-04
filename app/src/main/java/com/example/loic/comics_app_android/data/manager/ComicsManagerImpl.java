@@ -34,12 +34,16 @@ public class ComicsManagerImpl {
                 subsciber.onError(new Throwable("Error Code"));
                 return;
             }
+            boolean comicsByIdFound = false;
             for(ResultsItem result: comics.getResults()) {
                 if (result.getId() == id) {
                     subsciber.onSuccess(result);
+                    comicsByIdFound = true;
                 }
             }
-            subsciber.onError(new Throwable("Error Not found"));
+            if(!comicsByIdFound) {
+                subsciber.onError(new Throwable("Error Not found"));
+            }
         });
     }
 
@@ -47,13 +51,14 @@ public class ComicsManagerImpl {
         return Single.create(s -> {
             Gson gson = new Gson();
             Comic comics = gson.fromJson(FileToString(), Comic.class);
-            Log.d("ComicsFile", String.valueOf(s.isDisposed()));
             if(comics.getCode() != 500) {
                 s.onError(new Throwable("Error Code"));
                 return;
             }
             s.onSuccess(comics.getResults());
-            s.onError(new Throwable("Error Not found"));
+            if(comics.getResults().size() > 0) {
+                s.onError(new Throwable("Error Not found"));
+            }
         });
     }
 
