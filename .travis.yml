@@ -12,7 +12,7 @@ before_script:
   - chmod +x build-apk.sh
   - chmod +x gradlew
   - gem update --system
-  - gem install fastlane --no-rdoc --no-ri --no-document --quiet
+  - gem install fastlane
 script:
 #  - ./build-apk.sh
   - fastlane build_debug
