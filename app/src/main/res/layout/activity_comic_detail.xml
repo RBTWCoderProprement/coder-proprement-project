@@ -6,4 +6,14 @@
     android:layout_height="match_parent"
     tools:context="com.example.loic.comics_app_android.presentation.ui.activity.ComicDetailActivity">
 
+   <android.support.v7.widget.RecyclerView
+        android:id="@+id/comic_detail_rv"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>
