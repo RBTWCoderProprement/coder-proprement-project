@@ -12,7 +12,7 @@ public class ComicDetailHolder extends RecyclerView.ViewHolder {
     public TextView comicTitle;
     public TextView comicSynopsis;
     public TextView comicDate;
-    public TextView comicPageCount;
+    public TextView comicPagePriceDiamond;
 
     public ComicDetailHolder(View v) {
         super(v);
@@ -20,6 +20,6 @@ public class ComicDetailHolder extends RecyclerView.ViewHolder {
         comicTitle = v.findViewById(R.id.comic_detail_title);
         comicSynopsis = v.findViewById(R.id.comic_detail_synopsis);
         comicDate = v.findViewById(R.id.comic_detail_date);
-        comicPageCount = v.findViewById(R.id.comic_detail_price_page_diamond);
+        comicPagePriceDiamond = v.findViewById(R.id.comic_detail_price_page_diamond);
     }
 }

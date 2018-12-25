@@ -34,7 +34,7 @@ public class RecyclerComicDetailAdapter extends RecyclerView.Adapter<ComicDetail
           holder.comicTitle.setText(comic.getTitle());
           holder.comicSynopsis.setText(comic.getDescription());
           holder.comicDate.setText(parseTimeStamp(comic.getDate()));
-          holder.comicPageCount.setText(comic.getPageCount() + " pages");
+          holder.comicPagePriceDiamond.setText(comic.getPrice() + " $, "+ comic.getPageCount() + " pages - " + comic.getDiamondCode());
     }
 
 
