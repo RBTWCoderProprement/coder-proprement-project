@@ -7,12 +7,12 @@ import android.widget.TextView;
 
 import com.example.loic.comics_app_android.R;
 
-public class ComicsListHolder extends RecyclerView.ViewHolder {
+public class ComicListHolder extends RecyclerView.ViewHolder {
     public ImageView comicImage;
     public TextView comicTitle;
     public TextView comicDate;
     public TextView comicPageCount;
-    public ComicsListHolder(View v) {
+    public ComicListHolder(View v) {
         super(v);
         comicImage = v.findViewById(R.id.comic_image);
         comicTitle = v.findViewById(R.id.comic_title);
