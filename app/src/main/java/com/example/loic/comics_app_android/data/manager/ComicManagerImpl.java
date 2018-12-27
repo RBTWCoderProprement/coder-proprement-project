@@ -2,7 +2,6 @@ package com.example.loic.comics_app_android.data.manager;
 
 
 import android.content.res.Resources;
-import android.util.Log;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.Comic;
@@ -17,13 +16,13 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-public class ComicsManagerImpl implements ComicsManager {
+public class ComicManagerImpl implements ComicManager {
 
     private int jsonSuccess = R.raw.comic_succes;
     private int jsonError = R.raw.comic_error;
     private Resources resources;
 
-    public ComicsManagerImpl(Resources assetManager) {
+    public ComicManagerImpl(Resources assetManager) {
         this.resources = assetManager;
     }
 
@@ -33,7 +32,7 @@ public class ComicsManagerImpl implements ComicsManager {
         return Single.create(s -> {
             Gson gson = new Gson();
             Comic comics = gson.fromJson(FileToString(), Comic.class);
-            if(comics.getCode() != 200) {
+            if (comics.getCode() != 200) {
                 s.onError(new Throwable("Error Code"));
                 return;
             }
@@ -41,21 +40,17 @@ public class ComicsManagerImpl implements ComicsManager {
         });
     }
 
-    private String FileToString(){
+    private String FileToString() {
         InputStream inputStream = resources.openRawResource(jsonSuccess);
         try {
-            // open a reader on the inputStream
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
-            // String used to store the lines
             String str;
             StringBuilder buf = new StringBuilder();
 
-            // Read the file
             while ((str = reader.readLine()) != null) {
                 buf.append(str).append("\r\n");
             }
-            // Close streams
             reader.close();
             inputStream.close();
             return buf.toString();

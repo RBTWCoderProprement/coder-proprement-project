@@ -6,7 +6,7 @@ import java.util.List;
 
 import io.reactivex.Single;
 
-interface ComicsManager {
+public interface ComicManager {
     Single<List<ResultsItem>> getAllComics();
 
 }

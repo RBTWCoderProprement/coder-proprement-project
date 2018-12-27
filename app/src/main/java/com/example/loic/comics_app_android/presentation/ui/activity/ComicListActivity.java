@@ -1,23 +1,26 @@
 package com.example.loic.comics_app_android.presentation.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.RecyclerView;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
+import com.example.loic.comics_app_android.presentation.presenter.ComicListPresenter;
 import com.example.loic.comics_app_android.presentation.ui.adapter.RecyclerComicListAdapter;
+import com.example.loic.comics_app_android.presentation.ui.view.ComicListView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ComicListActivity extends AppCompatActivity {
+public class ComicListActivity extends AppCompatActivity implements ComicListView {
+
+    private ComicListPresenter presenter = new ComicListPresenter(this);
 
     private RecyclerView comicRecyclerView;
     private RecyclerComicListAdapter recyclerComicListAdapter;
 
-    //DEBUG
     private List<ResultsItem> comicList = new ArrayList<>();
 
     @Override
@@ -29,8 +32,15 @@ public class ComicListActivity extends AppCompatActivity {
 
         comicRecyclerView = findViewById(R.id.comics_list_rv);
         comicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        
+
         recyclerComicListAdapter = new RecyclerComicListAdapter(comicList);
         comicRecyclerView.setAdapter(recyclerComicListAdapter);
+
+        presenter.getAllComics();
+    }
+
+    @Override
+    public void updateList(List<ResultsItem> listComic) {
+        recyclerComicListAdapter.updateList(listComic);
     }
 }
