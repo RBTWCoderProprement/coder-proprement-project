@@ -10,6 +10,7 @@ import java.util.Date;
 
 public class ComicDataWrapper {
     private ResultsItem comic;
+
     public ComicDataWrapper(ResultsItem comic) {
         this.comic = comic;
     }

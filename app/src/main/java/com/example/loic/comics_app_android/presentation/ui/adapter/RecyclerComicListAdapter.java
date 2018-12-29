@@ -1,7 +1,6 @@
 package com.example.loic.comics_app_android.presentation.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,9 +11,6 @@ import com.example.loic.comics_app_android.presentation.ui.viewholder.ComicListH
 import com.example.loic.comics_app_android.presentation.wrapper.ComicDataWrapper;
 import com.squareup.picasso.Picasso;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 import java.util.List;
 
 public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
@@ -45,5 +41,15 @@ public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHold
     @Override
     public int getItemCount() {
         return comicList.size();
+    }
+
+    public void updateList(List<ResultsItem> listComic) {
+        this.comicList.clear();
+        this.addComicsList(listComic);
+    }
+
+    private void addComicsList(List<ResultsItem> listComic) {
+        this.comicList.addAll(listComic);
+        notifyDataSetChanged();
     }
 }
