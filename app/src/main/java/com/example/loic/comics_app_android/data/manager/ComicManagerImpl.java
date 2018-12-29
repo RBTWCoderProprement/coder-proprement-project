@@ -31,12 +31,12 @@ public class ComicManagerImpl implements ComicManager {
     public Single<List<ResultsItem>> getAllComics() {
         return Single.create(s -> {
             Gson gson = new Gson();
-            Comic comics = gson.fromJson(FileToString(), Comic.class);
-            if (comics.getCode() != 200) {
+            Comic response = gson.fromJson(FileToString(), Comic.class);
+            if (response.getCode() != 200) {
                 s.onError(new Throwable("Error Code"));
                 return;
             }
-            s.onSuccess(comics.getResults());
+            s.onSuccess(response.getResults());
         });
     }
 

@@ -11,13 +11,13 @@ import java.util.List;
 import io.reactivex.Single;
 
 public class ComicRepository {
-    private ComicManager comicsManager;
+    private ComicManager comicManager;
 
     public ComicRepository(Resources asset) {
-        comicsManager = new ComicManagerImpl(asset);
+        comicManager = new ComicManagerImpl(asset);
     }
 
     public Single<List<ResultsItem>> getAllComics() {
-        return comicsManager.getAllComics();
+        return comicManager.getAllComics();
     }
 }
