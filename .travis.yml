@@ -26,3 +26,4 @@ deploy:
   on:
     tags: true
     repo: RBTWCoderProprement/coder-proprement-project
+    all_branches: true
