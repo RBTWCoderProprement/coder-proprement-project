@@ -25,5 +25,6 @@ platform :android do
     final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
     sh("mkdir",OUTPUT_DIRECTORY_DEFAULT)
     sh 'mv '+initial_apk_path+' '+final_apk_path
+    sh 'cd ../build/apk ls -l'
   end
 end
