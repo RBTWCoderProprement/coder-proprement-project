@@ -26,6 +26,5 @@ platform :android do
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
     sh 'mv '+initial_apk_path+' '+final_apk_path
-    sh 'ls -l ../'
   end
 end
