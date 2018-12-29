@@ -20,6 +20,7 @@ deploy:
   provider: releases
   api_key:  
     secure: cxX14Lab/O466VdAf4h+WMa9J20Y4/mViRSFqw+dww24/HeFAZiKS54OB2l/TvuyEv7CySRSNSwCtHupwg1nAkczXgySxQOx15ifUpMxD5JFc5j9vD7pc+fXZDChYEflSUh6P6/2xRN9jCu49woKZUbXUzHHwZMo5KlROfcpJeKNkFp7MPBiKAIvibRdA0hosrx9uSYBDMCMw4+FQ8eeaK0zZorS5H/m1duikMiiTcqZjMsCO/hSC6oYtZ/ck7iirzJssy6xxt7Ax0xXoMhj+P5NsqRnBgx/sx7usWm9T0P+No3vKcLdA8oTjjzGGiP70lvbkLnG4MCOED9eQbIYKNNNdHX0R8SkLTrHVZ4oZISoCtgpJ2eDjK6xnPLzGvI13jxYH4sBIjSehMh+zMHSc5dQJZ+fnOS73++KGhh4TbLbKRfoUmuxWrE7QQhkbt9vaLGrPCd7WiYC0nmAw6mXOzLFJvwumoBWKkqwXa4HYuIcXD73ZX3tXPpiWCUiBLnrMTQAaYEOZZ8cnDqkI/B7zf5y9MBhn7ytXM/cq3kHgDy51cBNqZnuUFwTuoSvdquqw0IfsF4gB3yiFdEMkwAjoJMHnyiCu81maouBBDk4gTmbaD5dIeNY/aqsV13IuSFmy+BdLE0qQn2iu5x4GjUaPSXM2Af9sFqgmYpEEUfj90k=
+  file_glob: true
   file: build/apk/*
   skip_cleanup: true
   on:
