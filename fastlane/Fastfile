@@ -14,8 +14,13 @@ platform :android do
     gradle(
       task: "clean",
     )
-    gradle(
-      task: "assembleDebug",
+    build_android_app(
+      task: 'assemble',
+      build_type: 'Debug'
+    )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'AndroidTest'
     )
 
     OUTPUT_DIRECTORY_DEFAULT = "../build/apk/"
@@ -25,6 +30,17 @@ platform :android do
     final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
-    sh 'mv '+initial_apk_path+' '+final_apk_path
+    sh 'cp '+initial_apk_path+' '+final_apk_path
+  end
+  desc "Build debug and test APK for screenshots"
+  lane :build_for_screengrab do
+    build_android_app(
+      task: 'assemble',
+      build_type: 'Debug'
+    )
+    build_android_app(
+      task: 'assemble',
+      build_type: 'AndroidTest'
+    )
   end
 end
