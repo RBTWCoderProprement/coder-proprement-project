@@ -19,6 +19,7 @@ script:
   - fastlane build_debug
   - adb kill-server
   - adb start-server
+  - ~/Library/Android/sdk/tools/android avd
   - fastlane screengrab
 deploy:
   provider: releases
