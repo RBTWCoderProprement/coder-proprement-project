@@ -14,12 +14,15 @@ before_script:
   - gem update --system
   - gem install fastlane
   - gem install screengrab
+  - echo no | android create avd --force -n test -t android-27 --abi armeabi-v7a
+  - emulator -avd test -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
 script:
 #  - ./build-apk.sh
   - fastlane build_debug
   - adb kill-server
   - adb start-server
-  - ~/Library/Android/sdk/tools/android avd
   - fastlane screengrab
 deploy:
   provider: releases
