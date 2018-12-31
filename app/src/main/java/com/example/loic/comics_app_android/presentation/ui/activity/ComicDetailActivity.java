@@ -2,6 +2,7 @@ package com.example.loic.comics_app_android.presentation.ui.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
@@ -32,6 +33,7 @@ public class ComicDetailActivity extends AppCompatActivity {
     public TextView comicPagePriceDiamond;
     public RecyclerView comicCreatorsList;
     private RecyclerView.Adapter creatorsListAdapter;
+    private RecyclerView.LayoutManager layoutManagerCreatorsList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +89,7 @@ public class ComicDetailActivity extends AppCompatActivity {
         comic.setImage("http://i.annihil.us/u/prod/marvel/i/mg/f/03/59e7b08528560.jpg");
         comic.setPageCount(32);
 
+
         comicImage = findViewById(R.id.comic_detail_image);
         comicTitle = findViewById(R.id.comic_detail_title);
         comicSynopsis = findViewById(R.id.comic_detail_synopsis);
@@ -94,8 +97,8 @@ public class ComicDetailActivity extends AppCompatActivity {
         comicPagePriceDiamond = findViewById(R.id.comic_detail_price_page_diamond);
         comicCreatorsList = findViewById(R.id.comic_detail_creators_list);
 
-//        mLayoutManager = new LinearLayoutManager(this);
-//        mRecyclerView.setLayoutManager(mLayoutManager);
+        layoutManagerCreatorsList = new LinearLayoutManager(this);
+        comicCreatorsList.setLayoutManager(layoutManagerCreatorsList);
 
         Picasso.get().load(comic.getImage()).into(comicImage);
         comicTitle.setText(comic.getTitle());
@@ -105,11 +108,6 @@ public class ComicDetailActivity extends AppCompatActivity {
 
         creatorsListAdapter = new ComicDetailCreatorsListAdapter(comic.getCreators());
         comicCreatorsList.setAdapter(creatorsListAdapter);
-
-//        final ArrayAdapter<String> comicCreatorsAdapter = new ArrayAdapter<String>(ComicDetailActivity.this,
-//                android.R.layout.simple_list_item_1, prenoms);
-//        comicCreatorsList.setAdapter(comicCreatorsAdapter);
-//        holder.comicCreatorsList.setAdapter(comicCreatorsList);
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
