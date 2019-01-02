@@ -18,12 +18,13 @@ platform :android do
       task: "assembleDebug",
     )
 
-    OUTPUT_DIRECTORY_DEFAULT = "..\\build\\apk\\"
+    OUTPUT_DIRECTORY_DEFAULT = "../build/apk/"
     initial_apk_path = File.absolute_path(Dir.glob("../**/*.apk").last)
     date_time = Time.now.strftime("%Y%m%d%H%M")
     apk_filename = PROJECT_NAME+"-"+date_time+ ".apk"
     final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
-    sh("mkdir",OUTPUT_DIRECTORY_DEFAULT)
-    sh 'mv '+initial_apk_path+' '+final_apk_path    
+    sh 'mkdir ../build'
+    sh 'mkdir ../build/apk'
+    sh 'mv '+initial_apk_path+' '+final_apk_path
   end
 end
