@@ -31,16 +31,23 @@ platform :android do
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
     sh 'cp '+initial_apk_path+' '+final_apk_path
+
+    screengrab(
+     locales: ['en-US'],
+     clear_previous_screenshots: true,
+     test_instrumentation_runner: "android.support.test.runner.AndroidJUnitRunner",
+     tests_apk_path: 'app/build/outputs/apk/debug/app-debug.apk'
+    )
   end
   desc "Build debug and test APK for screenshots"
   lane :build_for_screengrab do
-    build_android_app(
-      task: 'assemble',
-      build_type: 'Debug'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'AndroidTest'
-    )
+   gradle(task: "assembleDebug assembleAndroidTest")
+   screengrab(
+     locales: ['en-US'],
+     clear_previous_screenshots: true,
+     test_instrumentation_runner: "android.support.test.runner.AndroidJUnitRunner",
+     tests_apk_path: 'app/build/outputs/apk/debug/app-debug.apk'
+   )
   end
+
 end
