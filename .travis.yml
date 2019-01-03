@@ -14,7 +14,7 @@ before_script:
   - echo no | android create avd --force -n test -t android-25 --abi google_apis/armeabi-v7a
   - emulator -avd test -no-window &
   - adb shell input keyevent 82 &
-  - chmod +x build-apk.sh
+  - chmod +x build-apk.sh²
   - chmod +x gradlew
   - gem update --system
   - gem install fastlane
@@ -24,7 +24,6 @@ script:
   - fastlane build_debug
   - adb kill-server
   - adb start-server
-  - fastlane screengrab
 deploy:
   provider: releases
   api_key:  

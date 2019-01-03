@@ -36,7 +36,8 @@ platform :android do
      locales: ['en-US'],
      clear_previous_screenshots: true,
      test_instrumentation_runner: "android.support.test.runner.AndroidJUnitRunner",
-     app_apk_path: 'app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
+     app_apk_path: 'app/build/outputs/apk/debug/app-debug.apk',
+     tests_apk_path: 'app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
     )
   end
   desc "Build debug and test APK for screenshots"
