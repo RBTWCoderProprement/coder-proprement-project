@@ -1,14 +1,13 @@
 package com.example.loic.comics_app_android.presentation.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.TextView;
 
 import com.example.loic.comics_app_android.R;
@@ -41,7 +40,8 @@ public class ComicDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_comic_detail);
         this.setTitle(R.string.detail_title_bar);
 
-        this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+       this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         // TODO: icône de partage dans la navbar (partage du titre, prix, date de sortie)
 
@@ -108,11 +108,13 @@ public class ComicDetailActivity extends AppCompatActivity {
 
         creatorsListAdapter = new ComicDetailCreatorsListAdapter(comic.getCreators());
         comicCreatorsList.setAdapter(creatorsListAdapter);
+
+
     }
 
     public boolean onOptionsItemSelected(MenuItem item){
         switch (item.getItemId()){
-            case R.id.home:
+            case android.R.id.home:
                 finish();
                 return true;
             case R.id.menu_partager:

@@ -1,10 +1,10 @@
 package com.example.loic.comics_app_android.presentation.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.CreatorsItem;
 import com.example.loic.comics_app_android.presentation.ui.viewholder.ComicDetailCreatorsHolder;
@@ -26,7 +26,6 @@ public class ComicDetailCreatorsListAdapter extends RecyclerView.Adapter<ComicDe
 
     @Override
     public void onBindViewHolder(ComicDetailCreatorsHolder holder, int position) {
-        Log.d("test", "creator name :"+creatorsList.get(position).getName());
         holder.creator_name.setText(creatorsList.get(position).getName());
         holder.creator_role.setText(creatorsList.get(position).getRole().toUpperCase());
     }

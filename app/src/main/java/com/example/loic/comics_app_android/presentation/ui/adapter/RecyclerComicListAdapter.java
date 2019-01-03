@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
@@ -15,10 +16,12 @@ import java.util.List;
 
 public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
     private List<ResultsItem> comicList;
+    public AdapterView.OnItemClickListener onComicClick;
 
     //Constructeur à adapter selon les données
-    public RecyclerComicListAdapter(List<ResultsItem> comicList) {
+    public RecyclerComicListAdapter(List<ResultsItem> comicList, AdapterView.OnItemClickListener click) {
         this.comicList = comicList;
+        this.onComicClick = click;
     }
 
     @Override
@@ -36,6 +39,12 @@ public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHold
         holder.comicTitle.setText(comic.getTitle());
         holder.comicDate.setText(comicDataWrapper.parseTimeStamp());
         holder.comicPageCount.setText(comic.getPageCount() + " pages");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onComicClick.onItemClick(null,v,position,0);
+            }
+        });
     }
 
     @Override
