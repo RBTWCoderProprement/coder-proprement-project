@@ -16,14 +16,13 @@ before_script:
   - adb shell input keyevent 82 &
   - chmod +x build-apk.sh
   - chmod +x gradlew
-  - gem update --system
-  - gem install fastlane
-  - gem install screengrab
+ # - gem update --system
+ # - gem install fastlane
+ # - gem install screengrab
 script:
 #  - ./build-apk.sh
-  - fastlane build_for_screengrab
-  - adb kill-server
-  - adb start-server
+#  - fastlane build_for_screengrab
+  - adb shell pm list packages
 deploy:
   provider: releases
   api_key:  
