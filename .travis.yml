@@ -15,19 +15,17 @@ before_script:
   - android list targets
   - echo no | android create avd --force -n test -t android-25 --abi google_apis/armeabi-v7a
   - emulator -avd test -no-skin -no-audio -no-window &
-  - android-wait-for-emulator
+#  - android-wait-for-emulator
   - adb shell input keyevent 82 &
-  - adb wait-for-device get-serialno
+#  - adb wait-for-device get-serialno
   - chmod +x build-apk.sh
   - chmod +x gradlew
- # - gem update --system
- # - gem install fastlane
- # - gem install screengrab
+  - gem update --system
+  - gem install fastlane
+  - gem install screengrab
 script:
 #  - ./build-apk.sh
-#  - fastlane build_for_screengrab
-  - adb devices
-  - adb shell pm list packages
+  - fastlane build_for_screengrab
 deploy:
   provider: releases
   api_key:  

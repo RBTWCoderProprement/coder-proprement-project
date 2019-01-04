@@ -31,6 +31,7 @@ platform :android do
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
     sh 'cp '+initial_apk_path+' '+final_apk_path
+    sh 'adb shell pm list packages'
 
     screengrab(
      locales: ['en-US'],
