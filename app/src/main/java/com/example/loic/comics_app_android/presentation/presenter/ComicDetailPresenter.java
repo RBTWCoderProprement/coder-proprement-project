@@ -25,12 +25,10 @@ public class ComicDetailPresenter {
         repository.getComicById(64966).subscribeOn(Schedulers.io()).subscribeWith(new DisposableSingleObserver<ResultsItem>() {
             @Override
             public void onSuccess(ResultsItem resultsItem) {
-                Log.d("mlk", resultsItem.toString());
             }
 
             @Override
             public void onError(Throwable e) {
-                Log.d("mlk", e.getMessage());
                 e.printStackTrace();
             }
         }).isDisposed();

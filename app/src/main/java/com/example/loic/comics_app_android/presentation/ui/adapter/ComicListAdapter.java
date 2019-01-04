@@ -13,11 +13,11 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
+public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
     private List<ResultsItem> comicList;
 
     //Constructeur à adapter selon les données
-    public RecyclerComicListAdapter(List<ResultsItem> comicList) {
+    public ComicListAdapter(List<ResultsItem> comicList) {
         this.comicList = comicList;
     }
 
