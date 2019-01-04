@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView;
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
 import com.example.loic.comics_app_android.presentation.presenter.ComicListPresenter;
-import com.example.loic.comics_app_android.presentation.ui.adapter.RecyclerComicListAdapter;
+import com.example.loic.comics_app_android.presentation.ui.adapter.ComicListAdapter;
 import com.example.loic.comics_app_android.presentation.ui.view.ComicListView;
 
 import java.util.ArrayList;
@@ -19,7 +19,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
     private ComicListPresenter presenter = new ComicListPresenter(this);
 
     private RecyclerView comicRecyclerView;
-    private RecyclerComicListAdapter recyclerComicListAdapter;
+    private ComicListAdapter comicListAdapter;
 
     private List<ResultsItem> comicList = new ArrayList<>();
 
@@ -33,14 +33,14 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
         comicRecyclerView = findViewById(R.id.comics_list_rv);
         comicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerComicListAdapter = new RecyclerComicListAdapter(comicList);
-        comicRecyclerView.setAdapter(recyclerComicListAdapter);
+        comicListAdapter = new ComicListAdapter(comicList);
+        comicRecyclerView.setAdapter(comicListAdapter);
 
         presenter.getAllComics();
     }
 
     @Override
     public void updateList(List<ResultsItem> listComic) {
-        recyclerComicListAdapter.updateList(listComic);
+        comicListAdapter.updateList(listComic);
     }
 }

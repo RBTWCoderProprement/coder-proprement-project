@@ -20,4 +20,6 @@ public class ComicRepository {
     public Single<List<ResultsItem>> getAllComics() {
         return comicManager.getAllComics();
     }
+
+    public Single<ResultsItem> getComicById(int id) { return comicManager.getComicById(id); }
 }

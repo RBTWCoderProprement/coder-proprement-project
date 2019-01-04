@@ -8,5 +8,5 @@ import io.reactivex.Single;
 
 public interface ComicManager {
     Single<List<ResultsItem>> getAllComics();
-
+    Single<ResultsItem> getComicById(int id);
 }
