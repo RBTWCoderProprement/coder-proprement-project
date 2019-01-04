@@ -11,7 +11,7 @@ import android.widget.AdapterView;
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
 import com.example.loic.comics_app_android.presentation.presenter.ComicListPresenter;
-import com.example.loic.comics_app_android.presentation.ui.adapter.RecyclerComicListAdapter;
+import com.example.loic.comics_app_android.presentation.ui.adapter.ComicListAdapter;
 import com.example.loic.comics_app_android.presentation.ui.view.ComicListView;
 
 import java.util.ArrayList;
@@ -22,7 +22,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
     private ComicListPresenter presenter = new ComicListPresenter(this);
 
     private RecyclerView comicRecyclerView;
-    private RecyclerComicListAdapter recyclerComicListAdapter;
+    private ComicListAdapter comicListAdapter;
 
     private List<ResultsItem> comicList = new ArrayList<>();
 
@@ -36,7 +36,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
         comicRecyclerView = findViewById(R.id.comics_list_rv);
         comicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        recyclerComicListAdapter = new RecyclerComicListAdapter(comicList, new AdapterView.OnItemClickListener() {
+        comicListAdapter = new ComicListAdapter(comicList, new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ComicListActivity.this, ComicDetailActivity.class);
@@ -46,7 +46,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
         });
 
 
-        comicRecyclerView.setAdapter(recyclerComicListAdapter);
+        comicRecyclerView.setAdapter(comicListAdapter);
 
         presenter.getAllComics();
 
@@ -56,7 +56,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
     public void updateList(List<ResultsItem> listComic) {
         comicList.clear();
         comicList = listComic;
-        recyclerComicListAdapter.updateList(listComic);
+        comicListAdapter.updateList(listComic);
     }
 
 }

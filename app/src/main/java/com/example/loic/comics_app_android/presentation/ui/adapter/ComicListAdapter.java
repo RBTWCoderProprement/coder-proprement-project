@@ -14,12 +14,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
-public class RecyclerComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
+public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
     private List<ResultsItem> comicList;
     public AdapterView.OnItemClickListener onComicClick;
 
     //Constructeur à adapter selon les données
-    public RecyclerComicListAdapter(List<ResultsItem> comicList, AdapterView.OnItemClickListener click) {
+    public ComicListAdapter(List<ResultsItem> comicList, AdapterView.OnItemClickListener click) {
         this.comicList = comicList;
         this.onComicClick = click;
     }

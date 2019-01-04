@@ -40,6 +40,24 @@ public class ComicManagerImpl implements ComicManager {
         });
     }
 
+
+    public Single<ResultsItem> getComicById(int id) {
+        return Single.create(subsciber -> {
+            Gson gson = new Gson();
+            Comic comics = gson.fromJson(FileToString(), Comic.class);
+            if(comics.getCode() != 500) {
+                subsciber.onError(new Throwable("Error Code"));
+                return;
+            }
+            for(ResultsItem result: comics.getResults()) {
+                if (result.getId() == id) {
+                    subsciber.onSuccess(result);
+                }
+            }
+            subsciber.onError(new Throwable("Error Not found"));
+        });
+    }
+
     private String FileToString() {
         InputStream inputStream = resources.openRawResource(jsonSuccess);
         try {
