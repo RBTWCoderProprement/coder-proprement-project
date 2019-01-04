@@ -21,7 +21,7 @@ before_script:
   - gem install screengrab
 script:
 #  - ./build-apk.sh
-  - fastlane build_debug
+  - fastlane build_for_screengrab
   - adb kill-server
   - adb start-server
 deploy:
