@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">comics-app-android</string>
     <string name="detail_title_bar">Détail du comic</string>
+    <string name="liste_title_bar">Liste de comics</string>
     <string name="detail_image_comic">Image du comic</string>
     <string name="detail_informations">Informations</string>
     <string name="detail_credits">Crédits</string>
