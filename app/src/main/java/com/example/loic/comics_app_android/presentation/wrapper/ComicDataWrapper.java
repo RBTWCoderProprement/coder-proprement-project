@@ -28,6 +28,14 @@ public class ComicDataWrapper {
         return simpleDateFormat.format(date);
     }
 
+    public String concatPageDiamondCodePrice() {
+        return comic.getPrice() + " $, " + comic.getPageCount() + " pages - " + comic.getDiamondCode();
+    }
+
+    public String contentShare() {
+        return comic.getTitle() + "\n\n "+ comic.getDescription() + "\n\n" + parseTimeStamp() + " $\nPrix: " + comic.getPrice();
+    }
+
     public ResultsItem getComic() {
         return this.comic;
     }

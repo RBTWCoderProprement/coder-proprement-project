@@ -2,6 +2,7 @@ package com.example.loic.comics_app_android.data.manager;
 
 
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.Comic;
@@ -20,6 +21,7 @@ public class ComicManagerImpl implements ComicManager {
 
     private int jsonSuccess = R.raw.comic_succes;
     private int jsonError = R.raw.comic_error;
+    private int currentJson = jsonSuccess;
     private Resources resources;
 
     public ComicManagerImpl(Resources assetManager) {
@@ -33,15 +35,37 @@ public class ComicManagerImpl implements ComicManager {
             Gson gson = new Gson();
             Comic response = gson.fromJson(FileToString(), Comic.class);
             if (response.getCode() != 200) {
-                s.onError(new Throwable("Error Code"));
+                s.onError(new Throwable("Erreur lors de la récupération des comics"));
                 return;
             }
             s.onSuccess(response.getResults());
         });
     }
 
+
+    public Single<ResultsItem> getComicById(int id) {
+        return Single.create(subsciber -> {
+            Gson gson = new Gson();
+            boolean found = false;
+            Comic comics = gson.fromJson(FileToString(), Comic.class);
+            if(comics.getCode() != 200) {
+                subsciber.onError(new Throwable("Erreur lors de la récupération du comic"));
+                return;
+            }
+            for(ResultsItem result: comics.getResults()) {
+                if (result.getId() == id) {
+                    subsciber.onSuccess(result);
+                    found = true;
+                }
+            }
+            if(!found){
+                subsciber.onError(new Throwable("Erreur: Comic introuvable"));
+            }
+        });
+    }
+
     private String FileToString() {
-        InputStream inputStream = resources.openRawResource(jsonSuccess);
+        InputStream inputStream = resources.openRawResource(currentJson);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
