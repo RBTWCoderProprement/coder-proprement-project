@@ -34,4 +34,14 @@ public class ComicDetailCreatorsListAdapter extends RecyclerView.Adapter<ComicDe
     public int getItemCount() {
         return creatorsList.size();
     }
+
+    public void updateList(List<CreatorsItem> creatorsList) {
+        this.creatorsList.clear();
+        this.addComicsList(creatorsList);
+    }
+
+    private void addComicsList(List<CreatorsItem> creatorsList) {
+        this.creatorsList.addAll(creatorsList);
+        notifyDataSetChanged();
+    }
 }

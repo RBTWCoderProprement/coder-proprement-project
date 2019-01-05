@@ -16,9 +16,8 @@ import java.util.List;
 
 public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
     private List<ResultsItem> comicList;
-    public AdapterView.OnItemClickListener onComicClick;
+    private AdapterView.OnItemClickListener onComicClick;
 
-    //Constructeur à adapter selon les données
     public ComicListAdapter(List<ResultsItem> comicList, AdapterView.OnItemClickListener click) {
         this.comicList = comicList;
         this.onComicClick = click;
@@ -26,8 +25,7 @@ public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
 
     @Override
     public ComicListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //New view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_comic, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_comic_item, parent, false);
         return new ComicListHolder(v);
     }
 

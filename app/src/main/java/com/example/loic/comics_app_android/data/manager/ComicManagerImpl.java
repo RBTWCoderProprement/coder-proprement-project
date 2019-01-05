@@ -2,6 +2,7 @@ package com.example.loic.comics_app_android.data.manager;
 
 
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.Comic;
@@ -36,6 +37,7 @@ public class ComicManagerImpl implements ComicManager {
                 s.onError(new Throwable("Error Code"));
                 return;
             }
+            Log.d("mlk",response.getResults().toString());
             s.onSuccess(response.getResults());
         });
     }
@@ -44,17 +46,21 @@ public class ComicManagerImpl implements ComicManager {
     public Single<ResultsItem> getComicById(int id) {
         return Single.create(subsciber -> {
             Gson gson = new Gson();
+            boolean found = false;
             Comic comics = gson.fromJson(FileToString(), Comic.class);
-            if(comics.getCode() != 500) {
+            if(comics.getCode() != 200) {
                 subsciber.onError(new Throwable("Error Code"));
                 return;
             }
             for(ResultsItem result: comics.getResults()) {
                 if (result.getId() == id) {
                     subsciber.onSuccess(result);
+                    found = true;
                 }
             }
-            subsciber.onError(new Throwable("Error Not found"));
+            if(!found){
+                subsciber.onError(new Throwable("Error Not found"));
+            }
         });
     }
 
@@ -74,6 +80,7 @@ public class ComicManagerImpl implements ComicManager {
             return buf.toString();
         } catch (IOException e) {
             e.printStackTrace();
+            Log.d("mlk",e.getMessage());
         }
         return "";
     }
