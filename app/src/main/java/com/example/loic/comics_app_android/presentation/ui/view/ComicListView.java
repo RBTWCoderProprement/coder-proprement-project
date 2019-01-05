@@ -6,5 +6,6 @@ import java.util.List;
 
 public interface ComicListView {
     void updateList(List<ResultsItem> listComic);
+    void showError(String message);
 }
 
