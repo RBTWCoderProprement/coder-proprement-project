@@ -1,5 +1,6 @@
 package com.example.loic.comics_app_android.presentation.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
@@ -38,6 +39,8 @@ public class ComicDetailActivity extends AppCompatActivity implements ComicDetai
 
     private int id;
 
+    private ComicDataWrapper comicDataWrapper;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,6 +73,12 @@ public class ComicDetailActivity extends AppCompatActivity implements ComicDetai
                 finish();
                 return true;
             case R.id.menu_partager:
+                Intent share = new Intent(Intent.ACTION_SEND);
+                share.setType("text/plain");
+                String shareSub = comicDataWrapper.contentShare();
+                share.putExtra(Intent.EXTRA_TEXT, shareSub);
+                startActivity(Intent.createChooser(share,"Share"));
+
                 return true;
         }
         return super.onOptionsItemSelected(item);
@@ -84,6 +93,7 @@ public class ComicDetailActivity extends AppCompatActivity implements ComicDetai
 
     @Override
     public void showComic(ComicDataWrapper comicDataWrapper) {
+        this.comicDataWrapper = comicDataWrapper;
         Picasso.get().load(comicDataWrapper.getComic().getImage()).into(comicImage);
         comicTitle.setText(comicDataWrapper.getComic().getTitle());
         comicSynopsis.setText(comicDataWrapper.getComic().getDescription());
