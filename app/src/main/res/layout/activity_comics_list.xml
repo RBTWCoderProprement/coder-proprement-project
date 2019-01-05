@@ -13,5 +13,6 @@
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
         tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp" />
+        tools:layout_editor_absoluteY="8dp"
+        />
 </android.support.constraint.ConstraintLayout>

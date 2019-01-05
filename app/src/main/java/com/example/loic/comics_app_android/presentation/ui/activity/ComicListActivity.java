@@ -1,9 +1,12 @@
 package com.example.loic.comics_app_android.presentation.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.AdapterView;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
@@ -33,14 +36,27 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
         comicRecyclerView = findViewById(R.id.comics_list_rv);
         comicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        comicListAdapter = new ComicListAdapter(comicList);
+        comicListAdapter = new ComicListAdapter(comicList, new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ComicListActivity.this, ComicDetailActivity.class);
+                intent.putExtra("id", comicList.get(position).getId());
+                startActivity(intent);
+            }
+        });
+
+
         comicRecyclerView.setAdapter(comicListAdapter);
 
         presenter.getAllComics();
+
     }
 
     @Override
     public void updateList(List<ResultsItem> listComic) {
+        comicList.clear();
+        comicList = listComic;
         comicListAdapter.updateList(listComic);
     }
+
 }

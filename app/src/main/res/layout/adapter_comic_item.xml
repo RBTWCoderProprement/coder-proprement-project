@@ -9,7 +9,10 @@
     android:elevation="8dp"
     android:background="@drawable/card_background"
     android:outlineAmbientShadowColor="@color/colorPrimary"
-    android:padding="8dp">
+    android:padding="8dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/comic_title"

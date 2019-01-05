@@ -2,6 +2,7 @@ package com.example.loic.comics_app_android.data.manager;
 
 
 import android.content.res.Resources;
+import android.util.Log;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.Comic;
@@ -20,6 +21,7 @@ public class ComicManagerImpl implements ComicManager {
 
     private int jsonSuccess = R.raw.comic_succes;
     private int jsonError = R.raw.comic_error;
+    private int currentJson = jsonSuccess;
     private Resources resources;
 
     public ComicManagerImpl(Resources assetManager) {
@@ -44,22 +46,26 @@ public class ComicManagerImpl implements ComicManager {
     public Single<ResultsItem> getComicById(int id) {
         return Single.create(subsciber -> {
             Gson gson = new Gson();
+            boolean found = false;
             Comic comics = gson.fromJson(FileToString(), Comic.class);
-            if(comics.getCode() != 500) {
+            if(comics.getCode() != 200) {
                 subsciber.onError(new Throwable("Error Code"));
                 return;
             }
             for(ResultsItem result: comics.getResults()) {
                 if (result.getId() == id) {
                     subsciber.onSuccess(result);
+                    found = true;
                 }
             }
-            subsciber.onError(new Throwable("Error Not found"));
+            if(!found){
+                subsciber.onError(new Throwable("Error Not found"));
+            }
         });
     }
 
     private String FileToString() {
-        InputStream inputStream = resources.openRawResource(jsonSuccess);
+        InputStream inputStream = resources.openRawResource(currentJson);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 

@@ -4,6 +4,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
@@ -15,16 +16,16 @@ import java.util.List;
 
 public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
     private List<ResultsItem> comicList;
+    private AdapterView.OnItemClickListener onComicClick;
 
-    //Constructeur à adapter selon les données
-    public ComicListAdapter(List<ResultsItem> comicList) {
+    public ComicListAdapter(List<ResultsItem> comicList, AdapterView.OnItemClickListener click) {
         this.comicList = comicList;
+        this.onComicClick = click;
     }
 
     @Override
     public ComicListHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        //New view
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.recycler_item_comic, parent, false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.adapter_comic_item, parent, false);
         return new ComicListHolder(v);
     }
 
@@ -36,6 +37,12 @@ public class ComicListAdapter extends RecyclerView.Adapter<ComicListHolder> {
         holder.comicTitle.setText(comic.getTitle());
         holder.comicDate.setText(comicDataWrapper.parseTimeStamp());
         holder.comicPageCount.setText(comic.getPageCount() + " pages");
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                onComicClick.onItemClick(null,v,position,0);
+            }
+        });
     }
 
     @Override
