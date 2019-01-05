@@ -14,13 +14,8 @@ platform :android do
     gradle(
       task: "clean",
     )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'Debug'
-    )
-    build_android_app(
-      task: 'assemble',
-      build_type: 'AndroidTest'
+    gradle(
+      task: 'assembleDebug',
     )
 
     OUTPUT_DIRECTORY_DEFAULT = "../build/apk/"
@@ -31,17 +26,9 @@ platform :android do
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
     sh 'cp '+initial_apk_path+' '+final_apk_path
-    sh 'adb shell pm list packages'
-
-    screengrab(
-     locales: ['en-US'],
-     clear_previous_screenshots: true,
-     test_instrumentation_runner: "android.support.test.runner.AndroidJUnitRunner",
-     app_apk_path: 'app/build/outputs/apk/debug/app-debug.apk',
-     tests_apk_path: 'app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
-    )
   end
-  desc "Build debug and test APK for screenshots"
+
+  desc "Build debug and Androidtest and take screenshots"
   lane :build_for_screengrab do
    gradle(task: "assembleDebug assembleAndroidTest")
    screengrab(
@@ -51,6 +38,11 @@ platform :android do
      app_apk_path: 'app/build/outputs/apk/debug/app-debug.apk',
      tests_apk_path: 'app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
    )
+  end
+
+  desc "Build test"
+  lane :build_test do
+    gradle(task: "test")
   end
 
 end
