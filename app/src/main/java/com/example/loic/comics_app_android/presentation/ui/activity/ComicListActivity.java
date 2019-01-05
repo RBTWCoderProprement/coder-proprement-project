@@ -32,7 +32,7 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_comics_list);
 
-        this.setTitle("Liste de comics");
+        this.setTitle(R.string.liste_title_bar);
 
         comicRecyclerView = findViewById(R.id.comics_list_rv);
         comicRecyclerView.setLayoutManager(new LinearLayoutManager(this));
