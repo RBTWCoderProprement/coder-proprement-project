@@ -30,6 +30,7 @@ public class ComicListPresenter {
 
             @Override
             public void onError(Throwable e) {
+                view.showError(e.getMessage());
                 e.printStackTrace();
             }
         }).isDisposed();

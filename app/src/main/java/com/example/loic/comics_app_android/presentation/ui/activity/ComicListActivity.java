@@ -7,6 +7,7 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Toast;
 
 import com.example.loic.comics_app_android.R;
 import com.example.loic.comics_app_android.data.model.ResultsItem;
@@ -53,10 +54,14 @@ public class ComicListActivity extends AppCompatActivity implements ComicListVie
     }
 
     @Override
+    public void showError(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    @Override
     public void updateList(List<ResultsItem> listComic) {
         comicList.clear();
         comicList = listComic;
         comicListAdapter.updateList(listComic);
     }
-
 }
