@@ -21,6 +21,7 @@ public class ComicManagerImpl implements ComicManager {
 
     private int jsonSuccess = R.raw.comic_succes;
     private int jsonError = R.raw.comic_error;
+    private int currentJson = jsonSuccess;
     private Resources resources;
 
     public ComicManagerImpl(Resources assetManager) {
@@ -37,7 +38,6 @@ public class ComicManagerImpl implements ComicManager {
                 s.onError(new Throwable("Error Code"));
                 return;
             }
-            Log.d("mlk",response.getResults().toString());
             s.onSuccess(response.getResults());
         });
     }
@@ -65,7 +65,7 @@ public class ComicManagerImpl implements ComicManager {
     }
 
     private String FileToString() {
-        InputStream inputStream = resources.openRawResource(jsonSuccess);
+        InputStream inputStream = resources.openRawResource(currentJson);
         try {
             BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream));
 
@@ -80,7 +80,6 @@ public class ComicManagerImpl implements ComicManager {
             return buf.toString();
         } catch (IOException e) {
             e.printStackTrace();
-            Log.d("mlk",e.getMessage());
         }
         return "";
     }
