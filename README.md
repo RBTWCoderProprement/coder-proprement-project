@@ -18,9 +18,9 @@ Le code est structuré de manière à bien différencier les couches de traiteme
 - presentation
   - presenter : Gestion des erreurs et appels aux méthodes get du repository
   - ui
-    - activity : Activités de l'application, List et Detail, récupèrent les données ; implémentes leurs interfaces dans view
+    - activity : Activités de l'application, List et Detail, récupèrent les données ; implémentent leurs interfaces dans view
     - view : Interfaces des activités
-    - adapter : Les classes "adapter" des listes des comics et des "creators" des comics dans le détail
+    - adapter : Les classes "adapter" des listes des comics et des créateurs des comics dans le détail
     - viewholder : Les ViewHolder des adapater pour l'affichage des données dans le layout
   - wrapper : Contient le wrapper de comic et les méthodes de conversion de timestamp, et de partage
   
@@ -38,7 +38,9 @@ Le fichier fastlane est configuré pour 3 lanes :
 
 ```fastlane build_for_screenshots```
 
-  Build du projet et de AndroidTest, Capture d'écran qui son stocker dans : fastlane/metadata/en-us/image/phoneScreenshot
+  Build du projet et de AndroidTest, captures d'écran qui sont stockées dans : fastlane/metadata/en-us/image/phoneScreenshot
+  
+  Il faut un émulateur ouvert pour que Fastlane puisse prendre des screenshots
 
 Un Travis est connecté à ce GitHub pour le build automatique : https://travis-ci.org/RBTWCoderProprement/coder-proprement-project
 
