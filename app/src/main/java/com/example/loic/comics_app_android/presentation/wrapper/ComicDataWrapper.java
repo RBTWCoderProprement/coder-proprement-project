@@ -33,7 +33,7 @@ public class ComicDataWrapper {
     }
 
     public String contentShare() {
-        return comic.getTitle() + "\n\n "+ comic.getDescription() + "\n\n" + parseTimeStamp() + " $\nPrix: " + comic.getPrice();
+        return comic.getTitle() + "\n" + parseTimeStamp() + "\n\nPrix: " + comic.getPrice() + "$";
     }
 
     public ResultsItem getComic() {
