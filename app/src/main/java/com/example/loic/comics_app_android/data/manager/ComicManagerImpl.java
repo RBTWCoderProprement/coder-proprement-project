@@ -35,7 +35,7 @@ public class ComicManagerImpl implements ComicManager {
             Gson gson = new Gson();
             Comic response = gson.fromJson(FileToString(), Comic.class);
             if (response.getCode() != 200) {
-                s.onError(new Throwable("Error Code"));
+                s.onError(new Throwable("Erreur lors de la récupération des comics"));
                 return;
             }
             s.onSuccess(response.getResults());
@@ -49,7 +49,7 @@ public class ComicManagerImpl implements ComicManager {
             boolean found = false;
             Comic comics = gson.fromJson(FileToString(), Comic.class);
             if(comics.getCode() != 200) {
-                subsciber.onError(new Throwable("Error Code"));
+                subsciber.onError(new Throwable("Erreur lors de la récupération du comic"));
                 return;
             }
             for(ResultsItem result: comics.getResults()) {
@@ -59,7 +59,7 @@ public class ComicManagerImpl implements ComicManager {
                 }
             }
             if(!found){
-                subsciber.onError(new Throwable("Error Not found"));
+                subsciber.onError(new Throwable("Erreur: Comic introuvable"));
             }
         });
     }

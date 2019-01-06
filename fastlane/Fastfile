@@ -15,7 +15,7 @@ platform :android do
       task: "clean",
     )
     gradle(
-      task: "assembleDebug",
+      task: 'assembleDebug',
     )
 
     OUTPUT_DIRECTORY_DEFAULT = "../build/apk/"
@@ -25,6 +25,24 @@ platform :android do
     final_apk_path = OUTPUT_DIRECTORY_DEFAULT+apk_filename
     sh 'mkdir ../build'
     sh 'mkdir ../build/apk'
-    sh 'mv '+initial_apk_path+' '+final_apk_path
+    sh 'cp '+initial_apk_path+' '+final_apk_path
   end
+
+  desc "Build debug and Androidtest and take screenshots"
+  lane :build_for_screengrab do
+   gradle(task: "assembleDebug assembleAndroidTest")
+   screengrab(
+     locales: ['en-US'],
+     clear_previous_screenshots: true,
+     test_instrumentation_runner: "android.support.test.runner.AndroidJUnitRunner",
+     app_apk_path: 'app/build/outputs/apk/debug/app-debug.apk',
+     tests_apk_path: 'app/build/outputs/apk/androidTest/debug/app-debug-androidTest.apk'
+   )
+  end
+
+  desc "Build test"
+  lane :build_test do
+    gradle(task: "test")
+  end
+
 end
